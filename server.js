@@ -17,9 +17,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs');
+// });
 
 hbs.registerHelper('currentYear', () => {
     return new Date().getFullYear();
@@ -37,6 +37,7 @@ app.get('/about', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is up.');
+const port = process.env.PORT || 3000; // if process.env.PORT does not exists, dafault 3000
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
